@@ -29,9 +29,6 @@ fun Application.module(testing: Boolean = false) {
         }
     }
 
-    val client = HttpClient(Apache) {
-    }
-
     routing {
         authenticate("myBasicAuth") {
             route("/rest/api/1.0/projects/ABC/repos/component-1") {
