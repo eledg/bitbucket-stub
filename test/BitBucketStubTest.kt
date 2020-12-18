@@ -22,5 +22,17 @@ class BitBucketStubTest {
                 assertEquals(HttpStatusCode.OK, response.status())
             }
         }
+
+        withTestApplication({ module(testing = true) }) {
+            handleRequest(HttpMethod.Get, "/rest/api/1.0/projects/ABC/repos/component-1/raw/path/to/file") {
+                addHeader(
+                    HttpHeaders.Authorization,
+                    HttpAuthHeader.Single("basic", Base64.getEncoder().encodeToString("$username:$password".toByteArray())).render()
+                )
+            }.apply {
+                assertEquals(HttpStatusCode.OK, response.status())
+                assert(!response.content.isNullOrEmpty())
+            }
+        }
     }
 }

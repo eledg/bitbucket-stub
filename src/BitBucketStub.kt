@@ -45,9 +45,9 @@ fun Application.module(testing: Boolean = false) {
                     val until: String? = call.parameters["until"]
                     call.respond(BitBucketServices().getRepoCommits(start, limit, since, until))
                 }
-            }
-            get("/rest/api/1.0/projects/DEL/repos/component-1/commits?start=0&limit=50") {
-                call.respond(mapOf("hello" to "world"))
+                get("raw/path/to/file") {
+                    call.respond(BitBucketServices().getFile())
+                }
             }
         }
     }

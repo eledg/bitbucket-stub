@@ -34,4 +34,11 @@ class BitBucketServices {
             nextPageStart = null
         )
     }
+
+    fun getFile(): String {
+        return """
+            #20.12.10.0845
+            DOCKER_APP_IMAGE=000000000000.dkr.ecr.eu-west-1.amazonaws.com/domain/project/component:MASTER-2020.12.10.082214
+        """.trimIndent()
+    }
 }
