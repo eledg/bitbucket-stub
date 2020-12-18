@@ -45,6 +45,8 @@ fun Application.module(testing: Boolean = false) {
                     val until: String? = call.parameters["until"]
                     call.respond(BitBucketServices().getRepoCommits(start, limit, since, until))
                 }
+            }
+            route("/projects/ABC/repos/component-1") {
                 get("raw/path/to/file") {
                     call.respond(BitBucketServices().getFile())
                 }
