@@ -17,7 +17,10 @@ class BitBucketServices {
                 authorTimestamp = 1607703446000,
                 properties = CommitProperties(
                     jiraKey = listOf(
-                        "ABC-1111"
+                        "ABC-1111",
+                        "ABC-1112",
+                        "ABC-1113",
+                        "ABC-1114",
                     )
                 )
             )
